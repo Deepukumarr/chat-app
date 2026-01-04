@@ -61,7 +61,10 @@ app.use("/api/user", userRouter);
 app.use("/api/messages", messageRouter);
 
 // ================= START SERVER =================
-const PORT = process.env.PORT || 5000;
+
+
+if(process.env.NODE_ENV !== "production"){
+  const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
@@ -75,3 +78,7 @@ const startServer = async () => {
 };
 
 startServer();
+
+}
+
+export default server;
